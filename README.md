@@ -5,6 +5,7 @@ Program ini adalah implementasi sederhana untuk menyelesaikan Traveling Salesper
 ## Struktur File Proyek
 
 Berikut adalah struktur direktori dan file utama dalam proyek ini:
+```
 .
 ├── src/
 │   ├── IOHandler.exs   # Modul untuk membaca dan mem-parsing file input matrix
@@ -15,6 +16,7 @@ Berikut adalah struktur direktori dan file utama dalam proyek ini:
 │   ├── 2.txt           # Contoh file input lainnya
 │   └── ...             # File input lainnya
 └── README.md           # File ini
+```
 
 ## Prasyarat
 
@@ -24,41 +26,21 @@ Sebelum menjalankan program ini, Anda memerlukan:
 
 ## Instalasi
 
-Berikut adalah panduan singkat untuk instalasi Erlang dan Elixir, terutama untuk pengguna Windows (karena ini sering ditanyakan). Untuk sistem operasi lain, silakan merujuk ke situs resmi masing-masing.
-
 ### 1. Instalasi Erlang/OTP
 
 Elixir berjalan di atas Erlang Virtual Machine (BEAM), jadi Erlang harus diinstal terlebih dahulu.
 
-* **Unduh Erlang:**
-    Kunjungi halaman unduhan resmi Erlang: [https://www.erlang.org/downloads](https://www.erlang.org/downloads)
-* **Untuk Windows:**
-    1.  Unduh "Windows Binary File" (biasanya installer 64-bit).
-    2.  Jalankan installer dan ikuti petunjuknya. Pengaturan default biasanya sudah cukup.
-    3.  **Penting:** Setelah instalasi, pastikan direktori `bin` dari instalasi Erlang Anda (misalnya, `C:\Program Files\erl<VERSI_OTP>\bin`) ditambahkan ke **PATH environment variable** sistem Anda. Installer biasanya melakukan ini, tetapi ada baiknya untuk diverifikasi.
-    4.  Buka Command Prompt atau PowerShell **baru** dan ketik `erl`. Jika berhasil masuk ke Erlang shell, instalasi berhasil. Ketik `halt().` (dengan titik) untuk keluar.
-* **Untuk macOS/Linux:** Gunakan package manager seperti Homebrew (`brew install erlang`), `apt`, `yum`, atau build dari source. Ikuti panduan di situs Erlang.
+* **Unduh Erlang:** [https://www.erlang.org/downloads](https://www.erlang.org/downloads)
 
 ### 2. Instalasi Elixir
 
-Setelah Erlang terinstal, Anda bisa menginstal Elixir.
-
-* **Unduh Elixir:**
-    Kunjungi halaman instalasi resmi Elixir: [https://elixir-lang.org/install.html](https://elixir-lang.org/install.html)
-* **Untuk Windows:**
-    1.  Dari halaman instalasi Elixir, cari link untuk "Windows installers". Unduh installer yang kompatibel dengan versi Erlang/OTP yang baru saja Anda instal.
-    2.  Jalankan installer Elixir dan ikuti petunjuknya.
-    3.  **Penting:** Installer Elixir biasanya akan otomatis menambahkan direktori `bin` Elixir (misalnya `C:\Program Files (x86)\Elixir\bin`) ke PATH environment variable Anda.
-    4.  Buka Command Prompt atau PowerShell **baru** dan ketik `elixir -v`. Jika versi Elixir dan Erlang muncul, instalasi berhasil.
-* **Untuk macOS/Linux:** Gunakan package manager seperti Homebrew (`brew install elixir`), `apt`, `yum`, atau metode lain yang dijelaskan di situs Elixir.
-
-**Catatan Kompatibilitas:** Pastikan versi Elixir yang Anda instal kompatibel dengan versi Erlang/OTP Anda. Informasi ini biasanya tersedia di catatan rilis Elixir. (Contoh: Elixir 1.18.x kompatibel dengan Erlang/OTP 27).
+* **Unduh Elixir:** [https://elixir-lang.org/install.html](https://elixir-lang.org/install.html)
 
 ## Format File Input
 
 Program ini membaca matriks jarak dari file `.txt`. Formatnya adalah sebagai berikut:
 
-1.  **Baris Pertama:** Satu angka integer yang merepresentasikan jumlah kota (`n`). Komentar setelah angka (dipisahkan spasi atau `//`) akan diabaikan.
+1.  **Baris Pertama:** Satu angka integer yang merepresentasikan jumlah kota (`n`)
 2.  **Baris Berikutnya (`n` baris):** Setiap baris merepresentasikan satu baris dari adjacency matrix. Setiap baris harus berisi `n` elemen yang dipisahkan oleh spasi.
     * Elemen bisa berupa angka integer (biaya/jarak).
     * Elemen non-numerik (misalnya, `x`) akan diinterpretasikan sebagai biaya tak hingga (`:infinity`), yang menandakan tidak ada jalur langsung.
@@ -66,15 +48,28 @@ Program ini membaca matriks jarak dari file `.txt`. Formatnya adalah sebagai ber
 **Contoh Isi `input.txt` (untuk 4 kota):**
 ```txt
 4 // Ini adalah jumlah kota
-0 10 x 20
-10 0 5 x
-x 5 0 12
-20 x 12 0
+0 10 15 20
+10 0 5 12
+10 5 0 12
+20 21 12 0
+```
 
 ## Cara menjalankan Program
 1. Buka Terminal atau Command Prompt/PowerShell
 2. Pindah ke direktori utama tempat Anda menyimpan proyek ini (direktori yang berisi folder src dan test)
-bash '''cd path/ke/direktori/proyek_tsp_anda'''
+```cd path/ke/direktori/proyek_tsp_anda```
 3. Jalankan Program utama
-bash '''elixir src/main.exs'''
+```elixir src/main.exs```
 4. Ikuti instruksi Program
+
+## Contoh Hasil Eksekusi Program untuk 6 test case di folder test/
+**1.txt**
+![image](https://github.com/user-attachments/assets/87536a6e-f98a-4bb4-9030-de4c6af4e2f3)
+**2.txt**
+![image](https://github.com/user-attachments/assets/ec7b3fc4-e97a-49af-8fd1-3c7979d1e202)
+**3.txt**
+![image](https://github.com/user-attachments/assets/144daf5f-ef7d-44d5-b7a2-354132b09558)
+**4.txt**
+![image](https://github.com/user-attachments/assets/5e96bd7a-9f3f-4de0-86d6-d9b87c371c03)
+**5.txt**
+![image](https://github.com/user-attachments/assets/7ac6aa8a-9c58-4171-bf8c-3750dc73ffaf)
